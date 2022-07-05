@@ -1,4 +1,6 @@
-﻿namespace BuilderGeneratorFactory.Dto
+﻿using BuilderGeneratorFactory.Extension;
+
+namespace BuilderGeneratorFactory.Dto
 {
    public class PropertyInfo
    {
@@ -10,7 +12,7 @@
       {
          get
          {
-            return string.Format("{0}{1}", Name.ToLower()[0], Name.Substring(1));
+            return Name.ToCamelCase();
          }
       }
 
