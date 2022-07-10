@@ -4,7 +4,7 @@
         <Identity Id="d38ada7e-3808-4b24-98a1-8e16f1acdcec" Version="1.0" Language="en-US" Publisher="Julio Robles" />
         <DisplayName>BuilderGeneratorExtension</DisplayName>
         <Description xml:space="preserve">Builder Class Generator ToolBuil</Description>
-        <Icon>Resources\BuilderTool.ico</Icon>
+        <Icon>Resources\BuilderTool_64x64.png</Icon>
         <PreviewImage>Resources\BuilderTool_64x64.png</PreviewImage>
     </Metadata>
     <Installation>

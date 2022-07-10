@@ -1,9 +1,4 @@
-﻿using BuilderGeneratorFactory;
-using BuilderGeneratorFactory.Define;
-using BuilderGeneratorFactory.Options;
-using System.IO;
-
-namespace BuilderGeneratorExtension
+﻿namespace BuilderGeneratorExtension
 {
    [Command(PackageIds.BuildCommand)]
    internal sealed class BuilderCommand : BaseCommand<BuilderCommand>
