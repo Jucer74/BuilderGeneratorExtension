@@ -8,51 +8,56 @@ namespace People.Domain.Entities
 	public class PersonBuilder
 	{
 		private readonly Fixture fixture;
-		private string _firstName;
-		private string _lastName;
-		private DateTime _dateOfBirth;
-		private char _sex;
+		private Person person;
 
 		public PersonBuilder()
 		{
+			person = new Person();
 			fixture = new Fixture();
 			fixture.Behaviors.OfType<ThrowingRecursionBehavior>().ToList().ForEach(b => fixture.Behaviors.Remove(b));
 			fixture.Behaviors.Add(new OmitOnRecursionBehavior());
 		}
 
+
+		public PersonBuilder SetFixtureData()
+		{
+			this.person = fixture.Create<Person>();
+			return this;
+		}
+
+
+		public List<Person> GetFixtureDataList(int quantity)
+		{
+			return fixture.Build<Person>().CreateMany(quantity).ToList();
+		}
+
 		public PersonBuilder WithFirstName(string firstName)
 		{
-			_firstName = firstName;
+			this.person.FirstName = firstName;
 			return this;
 		}
 
 		public PersonBuilder WithLastName(string lastName)
 		{
-			_lastName = lastName;
+			this.person.LastName = lastName;
 			return this;
 		}
 
 		public PersonBuilder WithDateOfBirth(DateTime dateOfBirth)
 		{
-			_dateOfBirth = dateOfBirth;
+			this.person.DateOfBirth = dateOfBirth;
 			return this;
 		}
 
 		public PersonBuilder WithSex(char sex)
 		{
-			_sex = sex;
+			this.person.Sex = sex;
 			return this;
 		}
 
 		public Person Build()
 		{
-			return new Person
-			{
-				FirstName = _firstName,
-				LastName = _lastName,
-				DateOfBirth = _dateOfBirth,
-				Sex = _sex
-			}
+			 return this.person;
 		}
 	}
 }

@@ -3,6 +3,8 @@ using BuilderGeneratorFactory.Dto;
 using BuilderGeneratorFactory.Exceptions;
 using BuilderGeneratorFactory.Extension;
 using BuilderGeneratorFactory.Options;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -140,7 +142,7 @@ namespace BuilderGeneratorFactory
          content.AppendLine(string.Format("\t\tpublic {0} SetFixtureData()", builderClassName));
          content.AppendLine(string.Format("\t\t{0}", BuilderConstants.OpenBrace));
 
-         content.AppendLine(string.Format("\t\t\tthis.{0} = fixture.Build<{1}>().Create();{1}();", variableClassName, className));
+         content.AppendLine(string.Format("\t\t\tthis.{0} = fixture.Create<{1}>();", variableClassName, className));
          content.AppendLine(string.Format("\t\t\t{0}", BuilderConstants.ReturnThis));
 
          content.AppendLine(string.Format("\t\t{0}", BuilderConstants.CloseBrace));

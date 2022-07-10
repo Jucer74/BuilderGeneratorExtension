@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "BuilderGenerator": {
-      "commandName": "Project",
-      "commandLineArgs": "\"D:\\Documents\\My Repositories\\BuilderGeneratorExtension\\Entities\\Person.cs\""
-    }
-  }
-}
