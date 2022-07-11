@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="d38ada7e-3808-4b24-98a1-8e16f1acdcec" Version="1.0" Language="en-US" Publisher="Julio Robles" />
-        <DisplayName>BuilderGeneratorExtension</DisplayName>
-        <Description xml:space="preserve">Builder Class Generator ToolBuil</Description>
-        <Icon>Resources\BuilderTool_64x64.png</Icon>
-        <PreviewImage>Resources\BuilderTool_64x64.png</PreviewImage>
+        <Identity Id="BuilderGeneratorExtension.d38ada7e-3808-4b24-98a1-8e16f1acdcec" Version="1.0" Language="en-US" Publisher="Julio Robles" />
+        <DisplayName>Builder Generator Extension</DisplayName>
+        <Description xml:space="preserve">It generates a Builder Class from an Entity or Model Class</Description>
+        <Icon>Resources\CubeBuilderView.png</Icon>
+        <PreviewImage>Resources\CubeBuilderView.png</PreviewImage>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Version="[16.0,18.0)" Id="Microsoft.VisualStudio.Pro">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Version="[16.0,18.0)" Id="Microsoft.VisualStudio.Enterprise">
             <ProductArchitecture>amd64</ProductArchitecture>
         </InstallationTarget>
     </Installation>

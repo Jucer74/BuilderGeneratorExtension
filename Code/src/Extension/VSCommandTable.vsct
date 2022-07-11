@@ -18,20 +18,23 @@
       <Buttons>
          <Button guid="BuilderGeneratorExtension" id="BuildCommand" priority="0x0100" type="Button">
             <Parent guid="BuilderGeneratorExtension" id="BuildMenuGroup" />
-            <Icon guid="ImageCatalogGuid" id="StatusInformation" />
+            <Icon guid="ImageCatalogGuid" id="CubeBuilderView" />
             <CommandFlag>IconIsMoniker</CommandFlag>
             <Strings>
-               <ButtonText>Builder Generator</ButtonText>
+               <ButtonText>Run Builder Generator</ButtonText>
                <LocCanonicalName>.BuilderGeneratorExtension.BuildCommand</LocCanonicalName>
             </Strings>
          </Button>
       </Buttons>
+      <Bitmaps>
+         <Bitmap guid="guidImages" href="Resources\CubeBuilderView.png" usedList="bmpPic1"/>
+      </Bitmaps>      
    </Commands>
 
    <Symbols>
       <GuidSymbol name="BuilderGeneratorExtension" value="{3d97fea7-bb65-4102-8f8b-c184cc4fb4e4}">
          <IDSymbol name="BuildMenuGroup" value="0x0001" />
          <IDSymbol name="BuildCommand" value="0x0100" />
-      </GuidSymbol>
+      </GuidSymbol>  
    </Symbols>
 </CommandTable>

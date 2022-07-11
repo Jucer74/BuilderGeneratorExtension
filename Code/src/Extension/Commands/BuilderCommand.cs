@@ -5,6 +5,7 @@
    {
       protected override async Task ExecuteAsync(OleMenuCmdEventArgs e)
       {
+         //var selectedFileClass = await VS.Selection.GetDpiContext();
          //string fileClassName = "D:\\Documents\\My Repositories\\BuilderGeneratorExtension\\Entities\\Person.cs";
 
          //BuilderOptions builderOptions = new BuilderOptions()
