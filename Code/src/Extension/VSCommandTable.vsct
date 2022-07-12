@@ -26,13 +26,10 @@
             </Strings>
          </Button>
       </Buttons>
-      <Bitmaps>
-         <Bitmap guid="guidImages" href="Resources\CubeBuilderView.png" usedList="bmpPic1"/>
-      </Bitmaps>      
    </Commands>
 
    <Symbols>
-      <GuidSymbol name="BuilderGeneratorExtension" value="{3d97fea7-bb65-4102-8f8b-c184cc4fb4e4}">
+      <GuidSymbol name="BuilderGeneratorExtension" value="{dd3443a0-9221-4e8c-91e5-0ef07b1dd083}">
          <IDSymbol name="BuildMenuGroup" value="0x0001" />
          <IDSymbol name="BuildCommand" value="0x0100" />
       </GuidSymbol>  

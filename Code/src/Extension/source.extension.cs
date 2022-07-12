@@ -7,11 +7,11 @@ namespace BuilderGeneratorExtension
 {
     internal sealed partial class Vsix
     {
-        public const string Id = "BuilderGeneratorExtension.d38ada7e-3808-4b24-98a1-8e16f1acdcec";
+        public const string Id = "e9598cca-8df7-4805-9974-87b58ee572ad";
         public const string Name = "Builder Generator Extension";
         public const string Description = @"It generates a Builder Class from an Entity or Model Class";
         public const string Language = "en-US";
-        public const string Version = "1.0";
+        public const string Version = "1.0.0.1";
         public const string Author = "Julio Robles";
         public const string Tags = "";
     }

@@ -46,6 +46,8 @@
     <Compile Include="Dto\PropertyInfo.cs" />
     <Compile Include="Exceptions\BusinessException.cs" />
     <Compile Include="Exceptions\NameSpaceException.cs" />
+    <Compile Include="Exceptions\MultipleSelectedFilesException.cs" />
+    <Compile Include="Exceptions\NoSelectedFileException.cs" />
     <Compile Include="Exceptions\PropertiesException.cs" />
     <Compile Include="Extension\StringExtension.cs" />
     <Compile Include="Options\BuilderOptions.cs" />

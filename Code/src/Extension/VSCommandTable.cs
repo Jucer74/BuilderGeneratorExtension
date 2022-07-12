@@ -12,7 +12,7 @@ namespace BuilderGeneratorExtension
     /// </summary>
     internal sealed partial class PackageGuids
     {
-        public const string BuilderGeneratorExtensionString = "3d97fea7-bb65-4102-8f8b-c184cc4fb4e4";
+        public const string BuilderGeneratorExtensionString = "dd3443a0-9221-4e8c-91e5-0ef07b1dd083";
         public static Guid BuilderGeneratorExtension = new Guid(BuilderGeneratorExtensionString);
     }
     /// <summary>

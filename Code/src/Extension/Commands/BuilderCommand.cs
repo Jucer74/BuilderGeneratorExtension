@@ -1,10 +1,23 @@
-﻿namespace BuilderGeneratorExtension
+﻿using BuilderGeneratorFactory.Exceptions;
+using EnvDTE80;
+using Microsoft.VisualStudio.Shell.Interop;
+
+namespace BuilderGeneratorExtension
 {
    [Command(PackageIds.BuildCommand)]
    internal sealed class BuilderCommand : BaseCommand<BuilderCommand>
    {
       protected override async Task ExecuteAsync(OleMenuCmdEventArgs e)
       {
+         try
+         {
+            await VS.MessageBox.ShowWarningAsync("Line 1", "Line 2");
+         }
+         catch (Exception ex)
+         {
+            await VS.MessageBox.ShowErrorAsync("Builder Generator Extension", ex.Message);
+         }
+
          //var selectedFileClass = await VS.Selection.GetDpiContext();
          //string fileClassName = "D:\\Documents\\My Repositories\\BuilderGeneratorExtension\\Entities\\Person.cs";
 
@@ -25,7 +38,26 @@
 
          //File.WriteAllText(fullBuilderFileName, builderClassContent);
 
-         await VS.MessageBox.ShowWarningAsync("BuilderGeneratorExtension", "Button clicked");
+         
       }
+
+      //private async Task GetFileClassName()
+      //{
+      //   await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+
+      //   var dte2 = await ServiceProvider.GetGlobalServiceAsync(typeof(SDTE)) as DTE2;
+
+      //   var selectedItems = dte2.SelectedItems;
+      //   if (selectedItems == null)
+      //   {
+      //      throw new NoSelectedFileException("No Selected File");
+      //   }
+         
+      //   if (selectedItems.MultiSelect || selectedItems.Count > 1)
+      //   {
+      //      throw new MultipleSelectedFilesException("Only One File must be selected");
+      //   }
+
+      //}
    }
 }
