@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="e9598cca-8df7-4805-9974-87b58ee572ad" Version="1.0.0.1" Language="en-US" Publisher="Julio Robles" />
-        <DisplayName>Builder Generator Extension</DisplayName>
+        <Identity Id="6456e5fd-ccef-44a3-830f-731063a61ded" Version="1.0.0.1" Language="en-US" Publisher="Julio Robles" />
+        <DisplayName>Builder Generator</DisplayName>
         <Description xml:space="preserve">It generates a Builder Class from an Entity or Model Class</Description>
         <Icon>Resources\CubeBuilderView.png</Icon>
         <PreviewImage>Resources\CubeBuilderView.png</PreviewImage>

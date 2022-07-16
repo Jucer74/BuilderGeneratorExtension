@@ -6,9 +6,9 @@
    <Include href="KnownImageIds.vsct"/>
    <Include href="VSGlobals.vsct"/>
 
-   <Commands package="BuilderGeneratorExtension">
+   <Commands package="BuilderGenerator">
       <Groups>
-         <Group guid="BuilderGeneratorExtension" id="BuildMenuGroup" priority="0x0600">
+         <Group guid="BuilderGenerator" id="BuildMenuGroup" priority="0x0600">
             <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE"/>
          </Group>
       </Groups>
@@ -16,20 +16,20 @@
       <!--This section defines the elements the user can interact with, like a menu command or a button
         or combo box in a toolbar. -->
       <Buttons>
-         <Button guid="BuilderGeneratorExtension" id="BuildCommand" priority="0x0100" type="Button">
-            <Parent guid="BuilderGeneratorExtension" id="BuildMenuGroup" />
+         <Button guid="BuilderGenerator" id="BuildCommand" priority="0x0100" type="Button">
+            <Parent guid="BuilderGenerator" id="BuildMenuGroup" />
             <Icon guid="ImageCatalogGuid" id="CubeBuilderView" />
             <CommandFlag>IconIsMoniker</CommandFlag>
             <Strings>
                <ButtonText>Run Builder Generator</ButtonText>
-               <LocCanonicalName>.BuilderGeneratorExtension.BuildCommand</LocCanonicalName>
+               <LocCanonicalName>.BuilderGenerator.BuildCommand</LocCanonicalName>
             </Strings>
          </Button>
       </Buttons>
    </Commands>
 
    <Symbols>
-      <GuidSymbol name="BuilderGeneratorExtension" value="{dd3443a0-9221-4e8c-91e5-0ef07b1dd083}">
+      <GuidSymbol name="BuilderGenerator" value="{6e722322-fd16-477a-8ae4-dfeb39e52cbb}">
          <IDSymbol name="BuildMenuGroup" value="0x0001" />
          <IDSymbol name="BuildCommand" value="0x0100" />
       </GuidSymbol>  

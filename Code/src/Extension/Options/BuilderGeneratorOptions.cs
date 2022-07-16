@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
-namespace BuilderGeneratorExtension
+namespace BuilderGenerator
 {
    internal partial class OptionsProvider
    {

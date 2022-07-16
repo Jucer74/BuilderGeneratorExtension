@@ -1,6 +1,6 @@
 ﻿using BuilderGeneratorFactory.Options;
 using Microsoft.Extensions.Configuration;
-using System.IO;
+using System;
 
 namespace BuilderGeneratorConsole
 {
@@ -11,7 +11,7 @@ namespace BuilderGeneratorConsole
       public Startup()
       {
          var builder = new ConfigurationBuilder()
-                      .SetBasePath(Directory.GetCurrentDirectory())
+                      .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                       .AddJsonFile("appsettings.json", optional: false);
 
          IConfiguration config = builder.Build();

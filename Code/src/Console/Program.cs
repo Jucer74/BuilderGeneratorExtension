@@ -7,77 +7,79 @@ using System.IO;
 
 namespace BuilderGenerator
 {
-  public class Program
-  {
-    public static void Main(string[] args)
-    {
-          Execute(args);
-    }     
-     
-    public static void Execute(string[] args)
-    {
-       if (args.Length != 1)
-       {
-          Console.WriteLine("Error: Invalid parameters.");
-          Usage();
-          return;
-       }
+   public class Program
+   {
+      public static void Main(string[] args)
+      {
+         Execute(args);
+      }
 
-       string fileClassName = args[0];
+      public static void Execute(string[] args)
+      {
+         if (args.Length != 1)
+         {
+            Console.WriteLine("Error: Invalid parameters.");
+            Usage();
+            return;
+         }
 
-       try
-       {
-          ProcessFile(fileClassName);   
-       }
-       catch (Exception ex)
-       {
-          Console.WriteLine("Error: Processing File Class Name [{0}]. {1}.", fileClassName, ex.Message);
-          Usage();
-       }
-    }
+         string fileClassName = args[0];
 
-    public static void Usage()
-    {
-       Console.WriteLine("Usage:");
-       Console.WriteLine("> BuilderGenerator ClassFileName\n");
-       Console.WriteLine("Example:");
-       Console.WriteLine("> BuilderGenerator People.cs");
-    }
+         try
+         {
+            ProcessFile(fileClassName);
+         }
+         catch (Exception ex)
+         {
+            Console.WriteLine("Error: Processing File Class Name [{0}]. {1}.", fileClassName, ex.Message);
+            Usage();
+         }
+      }
 
-    public static BuilderOptions GetBuilderOptions()
-    {
-       BuilderOptions builderOptions = new BuilderOptions();
-       var startup = new Startup();
-       if (startup.BuilderOptions != null)
-       {
-          builderOptions = startup.BuilderOptions;
-       }
+      public static void Usage()
+      {
+         Console.WriteLine("Usage:");
+         Console.WriteLine("> BuilderGenerator ClassFileName\n");
+         Console.WriteLine("Example:");
+         Console.WriteLine("> BuilderGenerator People.cs");
+      }
 
-       return builderOptions;
-    }
+      public static BuilderOptions GetBuilderOptions()
+      {
+         BuilderOptions builderOptions = new BuilderOptions();
+         var startup = new Startup();
+         if (startup.BuilderOptions != null)
+         {
+            builderOptions = startup.BuilderOptions;
+         }
 
-    public static void ProcessFile(string fileClassName)
-    {
-       if (File.Exists(fileClassName))
-       {
-          BuilderOptions builderOptions = GetBuilderOptions();
+         return builderOptions;
+      }
 
-          var fullPath = Path.GetDirectoryName(fileClassName);
-          var fileNameWithOutExtension = Path.GetFileNameWithoutExtension(fileClassName);
+      public static void ProcessFile(string fileClassName)
+      {
+         if (File.Exists(fileClassName))
+         {
+            BuilderOptions builderOptions = GetBuilderOptions();
 
-          string fullBuilderFileName = string.Format("{0}\\{1}Builder.cs", fullPath, fileNameWithOutExtension);
+            var fullPath = Path.GetDirectoryName(fileClassName);
+            var fileNameWithOutExtension = Path.GetFileNameWithoutExtension(fileClassName);
 
-          string fileContent = File.ReadAllText(fileClassName);
+            string fullBuilderFileName = string.Format("{0}\\{1}Builder.cs", fullPath, fileNameWithOutExtension);
 
-          string builderClassContent = BuilderFactory.Generate(fileContent, builderOptions);
+            string fileContent = File.ReadAllText(fileClassName);
 
-          File.WriteAllText(fullBuilderFileName, builderClassContent);
-       }
-       else
-       {
-          Console.WriteLine("Error: File Class Name [{0}] Not Exists.", fileClassName);
-          Usage();
-       }
-    }
-  }
+            string builderClassContent = BuilderFactory.Generate(fileContent, builderOptions);
+
+            File.WriteAllText(fullBuilderFileName, builderClassContent);
+
+            Console.WriteLine("Builder File [{0}] was created.", fullBuilderFileName);
+         }
+         else
+         {
+            Console.WriteLine("Error: File Class Name [{0}] Not Exists.", fileClassName);
+            Usage();
+         }
+      }
+   }
 }

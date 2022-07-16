@@ -16,8 +16,8 @@
     <ProjectGuid>{01ECADF4-99C1-4BFC-996E-65E8E31A6F79}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BuilderGeneratorExtension</RootNamespace>
-    <AssemblyName>BuilderGeneratorExtension</AssemblyName>
+    <RootNamespace>BuilderGenerator</RootNamespace>
+    <AssemblyName>BuilderGenerator</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <UseCodebase>true</UseCodebase>
@@ -51,7 +51,7 @@
     <Compile Include="Options\BuilderGeneratorOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\BuilderCommand.cs" />
-    <Compile Include="BuilderGeneratorExtensionPackage.cs" />
+    <Compile Include="BuilderGeneratorPackage.cs" />
     <Compile Include="source.extension.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
