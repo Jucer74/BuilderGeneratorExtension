@@ -7,6 +7,7 @@ using EnvDTE80;
 using Microsoft.VisualStudio.Shell.Interop;
 using System.IO;
 using System.Threading.Tasks;
+using static BuilderGenerator.OptionsProvider;
 
 namespace BuilderGenerator
 {
@@ -17,15 +18,15 @@ namespace BuilderGenerator
       {
          try
          {
-            await VS.MessageBox.ShowWarningAsync("Line 1", "Line 2");
-
-            string fileClassName = await GetFileClassNameAsync();
+            var options = BuilderGeneratorOptions.Instance;
 
             BuilderOptions builderOptions = new BuilderOptions()
             {
-               PropertiesType = BuilderPropertiesType.Fields,
-               EnableAutoFixture = true
+               PropertiesType = options.PropertierType,
+               EnableAutoFixture = options.EnableAutoFixture
             };
+
+            string fileClassName = await GetFileClassNameAsync();
 
             var fullPath = Path.GetDirectoryName(fileClassName);
             var fileNameWithOutExtension = Path.GetFileNameWithoutExtension(fileClassName);
@@ -63,19 +64,15 @@ namespace BuilderGenerator
 
          //Get selected item
          var selectedItem = selectedItems.Item(1);
+
          //and selectedItem.Project will not be null.
          var projectItem = selectedItem.ProjectItem;
-         //Get project for ProjectItem
-         var project = projectItem.ContainingProject;
-         // Or get project object if selectedItem is a project
-         var sproject = selectedItem.Project;
-         //Is selectedItem a physical folder?
-         var isFolder = projectItem.Kind == EnvDTE.Constants.vsProjectItemKindPhysicalFolder;
-         //Else, get item's folder
-         var itemFolder = new FileInfo(projectItem.Properties.Item("FullPath").ToString()).Directory;
- 
 
-         return projectItem.Name;
+         // Get the Ful filename
+         var fileName = projectItem.FileNames[1];
+
+
+         return fileName;
 
       }
    }
