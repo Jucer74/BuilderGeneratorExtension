@@ -246,7 +246,7 @@ namespace BuilderGeneratorFactory
                settingProperty = string.Format("\t\t\t\t{0} = _{1}{2}", properties[index].Name, properties[index].Name.ToCamelCase(), (index + 1 < properties.Count) ? "," : string.Empty);
                content.AppendLine(settingProperty);
             }
-            content.AppendLine(string.Format("\t\t\t{0}", BuilderConstants.CloseBrace));
+            content.AppendLine(string.Format("\t\t\t{0};", BuilderConstants.CloseBrace));
          }
          else
          {
