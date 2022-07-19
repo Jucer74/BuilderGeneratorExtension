@@ -9,9 +9,9 @@
         <Icon>Resources\CubeBuilderView.png</Icon>
         <PreviewImage>Resources\CubeBuilderView.png</PreviewImage>
     </Metadata>
-    <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0,18.0)">
-            <ProductArchitecture>x86</ProductArchitecture>
+    <Installation InstalledByMsi="true">
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
         </InstallationTarget>
     </Installation>
     <Prerequisites>
