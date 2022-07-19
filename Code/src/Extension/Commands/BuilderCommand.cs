@@ -5,7 +5,7 @@ using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio.Shell.Interop;
 using System.IO;
-using System.Threading.Tasks;
+using System.Linq;
 
 namespace BuilderGenerator
 {
@@ -20,14 +20,13 @@ namespace BuilderGenerator
          {
             var dte2 = ServiceProvider.GlobalProvider.GetService(typeof(SDTE)) as DTE2;
 
-            string fileClassName = await GetFileClassNameAsync(dte2);
+            string fileClassName = GetFileClassName(dte2);
 
             BuilderOptions builderOptions = GetOptions();
 
-            string fullBuilderFileName  = CreateBuilderFile(fileClassName, builderOptions);
+            string builderFileName = CreateBuilderFile(fileClassName, builderOptions);
 
-            AddFileToProjectAsync(dte2, fullBuilderFileName);
-
+            AddFileToProject(dte2, builderFileName);
          }
          catch (Exception ex)
          {
@@ -35,15 +34,41 @@ namespace BuilderGenerator
          }
       }
 
-      private async Task AddFileToProjectAsync(DTE2 dte2, string fullBuilderFileName)
+      private static void AddFileToProject(DTE2 dte2, string builderFileName)
       {
-         await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+         ThreadHelper.ThrowIfNotOnUIThread();
 
-         var parentDirectory = Path.GetDirectoryName(fullBuilderFileName);
+         FileInfo file = new FileInfo(builderFileName);
 
-         ProjectItem parentProjectItem = dte2.Solution.FindProjectItem(parentDirectory);
+         EnvDTE.Project project = dte2.SelectedItems.Item(1).ProjectItem.ContainingProject;
 
-         parentProjectItem.ProjectItems.AddFromFile(fullBuilderFileName);
+         ProjectItems parentProjectItems = GetProjectItems(project, file);
+
+         parentProjectItems.AddFromFile(builderFileName);
+      }
+
+      private static ProjectItems GetProjectItems(EnvDTE.Project project, FileInfo file)
+      {
+         ThreadHelper.ThrowIfNotOnUIThread();
+
+         var directoryFullPath = file.DirectoryName;
+
+         var projectDirectoryFullPath = Path.GetDirectoryName(project.FullName);
+
+         if (projectDirectoryFullPath.Equals(directoryFullPath))
+         {
+            return project.ProjectItems;
+         }
+
+         var parentDirectoryName = file.Directory.Name;
+
+         return project.ProjectItems.Cast<ProjectItem>()
+                                    .FirstOrDefault(i =>
+                                    {
+                                       ThreadHelper.ThrowIfNotOnUIThread();
+                                       return i.Name.Equals(parentDirectoryName, StringComparison.OrdinalIgnoreCase);
+                                    })
+                                    .ProjectItems;
       }
 
       private static string CreateBuilderFile(string fileClassName, BuilderOptions builderOptions)
@@ -76,9 +101,9 @@ namespace BuilderGenerator
          return builderOptions;
       }
 
-      private async Task<string> GetFileClassNameAsync(DTE2 dte2)
+      private static string GetFileClassName(DTE2 dte2)
       {
-         await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+         ThreadHelper.ThrowIfNotOnUIThread();
 
          var selectedItems = dte2.SelectedItems;
 
@@ -92,12 +117,8 @@ namespace BuilderGenerator
             throw new MultipleSelectedFilesException("Only One File must be selected");
          }
 
-         //Get selected item
          var selectedItem = selectedItems.Item(1);
-
-         //and selectedItem.Project will not be null.
          var projectItem = selectedItem.ProjectItem;
-         // Get the Full filename
          var fileName = projectItem.FileNames[1];
 
          return fileName;
