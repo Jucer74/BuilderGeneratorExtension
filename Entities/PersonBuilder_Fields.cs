@@ -1,34 +1,14 @@
-using AutoFixture;
-using People.Domain.Common;
-using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace People.Domain.Entities
 {
 	public class PersonBuilder
 	{
-		private readonly Fixture fixture;
 		private Person person;
 
 		public PersonBuilder()
 		{
 			person = new Person();
-			fixture = new Fixture();
-			fixture.Behaviors.OfType<ThrowingRecursionBehavior>().ToList().ForEach(b => fixture.Behaviors.Remove(b));
-			fixture.Behaviors.Add(new OmitOnRecursionBehavior());
-		}
-
-
-		public PersonBuilder SetFixtureData()
-		{
-			this.person = fixture.Create<Person>();
-			return this;
-		}
-
-
-		public List<Person> GetFixtureDataList(int quantity)
-		{
-			return fixture.Build<Person>().CreateMany(quantity).ToList();
 		}
 
 		public PersonBuilder WithFirstName(string firstName)
