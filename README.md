@@ -1,6 +1,5 @@
-<center>![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/BuilderGenerator_Logo.png)</center>
 # Builder Generator Extension
-
+![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/BuilderGenerator_Logo.png) <br>
 This is a Visual Studio Extension, that allows generating a class that implements the Builder Pattern from a Model, Dto, or Entity Class.
 
 # Overview
