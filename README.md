@@ -76,17 +76,19 @@ public class PersonBuilder
 This extension allows to create automacally the **Builder** class from the entity.
 
 ## Steps
-1. Select the entity file and press right click
+1. Select the entity file and press right click<br>
 ![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/Img_Contextual_Menu.jpg)
+<br>
 
-2. Select the option **Run Builder Generator** option
+2. Select the option **Run Builder Generator** option<br>
 ![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/Img_Run_Builder_Generator_Selection.jpg)
+<br>
 
-3. The Builder Class is add in the same route of the original entity class
+3. The Builder Class is add in the same route of the original entity class<br>
 ![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/Img_Builder_Class.jpg)
-
+<br>
 ### Options
-To generate theBuilder Class you can choose different options:
+To generate theBuilder Class you can choose different options:<br>
 ![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/Img_Builder_Generator_Options.jpg)
-
+<br>
 
