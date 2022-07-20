@@ -1,4 +1,6 @@
+<center>![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/BuilderGenerator_Logo.png)</center>
 # Builder Generator Extension
+
 This is a Visual Studio Extension, that allows generating a class that implements the Builder Pattern from a Model, Dto, or Entity Class.
 
 # Overview
@@ -93,8 +95,9 @@ To generate the Builder Class you can choose different options:<br>
 ![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/Img_Builder_Generator_Options.jpg)
 <br>
 
-- Properties Type:
-   - Fields:
-   - Variables:
+- **Properties Type**: 
+   - **Fields**: Generate the Builder Class based on _variables and return a new Object in the Build Method
 
-- Enable Auto Fixture:
+   - **Variables**: Generate the Builder class, using a private instance of the main object and inside the With Methods use the properties, also in the Build Method, returns the instance of the private object.
+
+- **Enable Auto Fixture**: Enable or disable the inclusion of the AutoFixture Library to allow automatic fill values to use in the Unit Tests.
