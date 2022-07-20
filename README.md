@@ -84,3 +84,9 @@ This extension allows to create automacally the **Builder** class from the entit
 
 3. The Builder Class is add in the same route of the original entity class
 ![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/Img_Builder_Class.jpg)
+
+### Options
+To generate theBuilder Class you can choose different options:
+![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/Img_Builder_Generator_Options.jpg)
+
+
