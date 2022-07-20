@@ -88,7 +88,7 @@ This extension allows to create automacally the **Builder** class from the entit
 ![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/Img_Builder_Class.jpg)
 <br>
 ### Options
-To generate theBuilder Class you can choose different options:<br>
+To generate the Builder Class you can choose different options:<br>
 ![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/Img_Builder_Generator_Options.jpg)
 <br>
 
