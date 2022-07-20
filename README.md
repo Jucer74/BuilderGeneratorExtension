@@ -92,3 +92,8 @@ To generate the Builder Class you can choose different options:<br>
 ![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/Img_Builder_Generator_Options.jpg)
 <br>
 
+- Properties Type:
+   - Fields:
+   - Variables:
+
+- Enable Auto Fixture:
