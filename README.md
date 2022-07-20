@@ -77,7 +77,10 @@ This extension allows to create automacally the **Builder** class from the entit
 
 ## Steps
 1. Select the entity file and press right click
-
+![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/Img_Contextual_Menu.jpg)
 
 2. Select the option **Run Builder Generator** option
+![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/Img_Run_Builder_Generator_Selection.jpg)
 
+3. The Builder Class is add in the same route of the original entity class
+![](https://github.com/Jucer74/BuilderGeneratorExtension/blob/master/Images/Img_Builder_Class.jpg)
