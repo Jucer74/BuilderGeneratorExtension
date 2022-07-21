@@ -16,7 +16,7 @@ namespace BuilderGenerator
    {
       [Category("Generator")]
       [DisplayName("Properties Type")]
-      [Description("Specifies if the generator will create the WithMethods using Fields or Variables. The Fields refers to object.FieldName and variables referes to _variableName.")]
+      [Description("Specifies if the generator will create the With Methods using Fields or Variables. The Fields refers to object.FieldName and variables referes to _variableName.")]
       [DefaultValue(BuilderPropertiesType.Fields)]
       [TypeConverter(typeof(EnumConverter))]
       public BuilderPropertiesType PropertierType { get; set; } = BuilderPropertiesType.Fields;
